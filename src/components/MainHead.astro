@@ -1,0 +1,23 @@
+---
+interface Props {
+	title: string;
+	description?: string | undefined;
+}
+
+const {
+	title = 'Clément LUCAS: Personal Site',
+	description = 'The personal site of Clément LUCAS',
+} = Astro.props as Props;
+
+---
+
+
+<meta charset="utf-8" />
+<meta name="description" property="og:description" content={description} />
+<meta name="author" content="Clément LUCAS" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+
+<!--<link rel="icon" type="image/svg+xml" href="/favicon.svg" />-->
+<link rel="icon" type="image/png" href="/favicon.png" />
