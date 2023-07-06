@@ -1,0 +1,54 @@
+---
+
+/** Main menu items */
+const textLinks: { label: string; href: string }[] = [
+	{ label: 'Home', href: '/' },
+    { label: 'Work', href: '/work/' },
+    { label: 'About', href: '/about/' },
+
+];
+
+---
+
+<nav class="z-50 font-brand font-medium mb-14">
+    <div id="menu-header" class="flex justify-between gap-2 p-6">
+        <a id="site-title" href="/" class="flex gap-2 items-center text-zinc-950 leading-tight ">
+			Clément LUCAS
+		</a>
+    </div>
+
+    <div id="menu-content" class="absolute inset-x-0">
+        <ul id="nav-items" class="m-0 flex flex-col gap-4 text-md leading-tight list-none p-8 bg-white border-b border-b-gray-100">
+            <!-- class:list : class named link and link.active if condition -->
+            {
+                textLinks.map(({label,href}) => (
+                    <li>
+                        <a 
+                            aria-current={Astro.url.pathname === href}
+                            class:list={[
+                                "inline-block leading-tight",                                  
+								{
+									"text-red-500": Astro.url.pathname === href || (href !== '/' && Astro.url.pathname.startsWith(href)),
+                                    // class active que si l'url actuelle est égale à l'url du lien ou si l'url du lien est différente de '/' et que l'url actuelle commence par l'url du lien
+                                    "text-gray-600": !(Astro.url.pathname === href || (href !== '/' && Astro.url.pathname.startsWith(href))),
+
+                                },
+                            ]}  
+                            href={href}
+                        >
+                            {label}
+                        </a>
+                    </li>
+                ))
+
+            }
+
+
+
+
+        </ul>
+    </div>
+
+
+
+</nav>
