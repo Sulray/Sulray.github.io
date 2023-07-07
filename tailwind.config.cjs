@@ -2,7 +2,24 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			keyframes: {
+				gradient: {
+					'0%': {
+					  'background-position': '0% 50%',
+					},
+					'50%': {
+					  'background-position': '100% 50%',
+					},
+					'100%': {
+					  'background-position': '0% 50%',
+					},
+				  },
+			},
+			animation: {
+				'background-animation': 'gradient 15s ease infinite'
+			}
+		},
 		fontFamily: {
 			'font-system': ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', '"Open Sans"', '"Helvetica Neue"', 'sans-serif'],
 			'font-body': ['"Public Sans"', 'var(--font-system)'],
@@ -18,7 +35,14 @@ module.exports = {
 			'3xl': '2.625rem',
 			'4xl': '3.5rem',
 			'5xl': '4.5rem',
-		}
+		},
+		backgroundSize: {
+			'auto': 'auto',
+			'cover': 'cover',
+			'contain': 'contain',
+			'50%': '50%',
+			'bigger' : '160%'
+		},
 	},
 	plugins: [],	
 }
